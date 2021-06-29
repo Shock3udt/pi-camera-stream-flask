@@ -8,9 +8,10 @@ from camera import VideoCamera
 import time
 import threading
 import os
-
+import threading
 pi_camera = VideoCamera(flip=False) # flip pi camera if upside down.
-
+t = threading.Thread(target=pi_camera._thread)
+t.start()
 # App Globals (do not edit)
 app = Flask(__name__)
 
